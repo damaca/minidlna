@@ -6,8 +6,6 @@ VOLUME ["/media"]
 
 VOLUME ["/etc/minidlna"]
 
-RUN apk update && apk add minidlna py-pip
-
-RUN pip install --upgrade pip && pip install BeautifulSoup && pip install periscope
+RUN apk update && apk add minidlna
 
 CMD [ "/usr/sbin/minidlnad", "-S", "-f", "/etc/minidlna/minidlna.conf" ]
