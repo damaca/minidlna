@@ -1,0 +1,11 @@
+FROM ubuntu:16.04
+
+EXPOSE 8200 1900/udp
+
+VOLUME ["/media"]
+
+VOLUME ["/etc/minidlna"]
+
+RUN apt-get update && apt-get install -y minidlna
+
+CMD [ "/usr/sbin/minidlnad", "-S", "-f", "/etc/minidlna/minidlna.conf" ]
